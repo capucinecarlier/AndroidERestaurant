@@ -3,43 +3,53 @@ package fr.isen.carlier.androiderestaurant
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
+import android.util.Log
 import android.widget.Toast
+import fr.isen.carlier.androiderestaurant.databinding.ActivityHomeBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
 
-        var textView = findViewById(R.id.textView) as TextView
-        var textView2 = findViewById(R.id.textView2) as TextView
-        var textView3 = findViewById(R.id.textView3) as TextView
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        textView.setOnClickListener {
-            // make a toast on button click event
-            Toast.makeText(this, "PAGE ENTRÉES", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CategorySelected::class.java)
-            intent.putExtra("NomGlobal","Entrées")
-            startActivity(intent)
+        binding.HomeStarters.setOnClickListener{
+            goToCategory(getString(R.string.entr_es))
         }
 
-        textView2.setOnClickListener {
-            // make a toast on button click event
-            Toast.makeText(this, "PAGE PLATS", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CategorySelected::class.java)
-            intent.putExtra("NomGlobal","Plats")
-            startActivity(intent)
+        binding.HomeMainCourse.setOnClickListener{
+            goToCategory(getString(R.string.plats))
         }
 
-        textView3.setOnClickListener {
-            // make a toast on button click event
-            Toast.makeText(this, "PAGE DESSERTS", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, CategorySelected::class.java)
-            intent.putExtra("NomGlobal","Desserts")
-            startActivity(intent)
+        binding.HomeDesserts.setOnClickListener{
+            goToCategory(getString(R.string.desserts))
         }
 
+        binding.BleButton.setOnClickListener{
+            goToCategory("")
+        }
 
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("HomeActivity","Mon activité est détruite")
+    }
+
+    private fun goToCategory(category: String){
+        val intent = Intent(this, CategorySelected:: class.java)
+        Toast.makeText(
+            this@MainActivity,
+            category,
+            Toast.LENGTH_LONG
+        ).show()
+        intent.putExtra("categoryName", category)
+        startActivity(intent)
+    }
+
+
+
 }
 

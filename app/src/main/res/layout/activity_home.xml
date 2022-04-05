@@ -7,69 +7,67 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/HomeStarters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="163dp"
-        android:text="Entrées"
+        android:text="@string/entr_es"
         android:textAlignment="center"
         android:textColor="#FF5722"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+        app:layout_constraintTop_toBottomOf="@+id/HomeNameApp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/HomeMainCourse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp"
-        android:text="Plats"
+        android:layout_marginTop="32dp"
+        android:text="@string/plats"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/HomeStarters" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/HomeDesserts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="381dp"
-        android:text="Desserts"
+        android:layout_marginTop="32dp"
+        android:text="@string/desserts"
         android:textAlignment="center"
         android:textColor="#FF5722"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HomeMainCourse" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/HomeWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="130dp"
         android:layout_marginTop="40dp"
-        android:text="Bienvenue chez"
+        android:text="@string/bienvenue_chez"
         android:textColor="#FF5722"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/HomeNameApp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="cursive"
-        android:text="AndroidERestaurant"
+        android:text="@string/androiderestaurant"
         android:textColor="#87371E"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+        app:layout_constraintTop_toBottomOf="@+id/HomeWelcome" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -80,5 +78,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/android" />
+
+    <ImageView
+        android:id="@+id/BleButton"
+        android:layout_width="73dp"
+        android:layout_height="86dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ble"
+        tools:layout_editor_absoluteY="566dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
