@@ -38,11 +38,11 @@ class BleScanActivity : AppCompatActivity() {
         //recycler view
 
         val recyclerBle: RecyclerView = binding.itemBle
-        bleAdapter = BleScanAdapter(itemList)
-        val layoutManager = LinearLayoutManager(applicationContext)
-        recyclerBle.layoutManager = layoutManager
-        recyclerBle.adapter = bleAdapter
-
+        bleAdapter = BleScanAdapter(itemList){
+            val intent = Intent(this, BleDeviceActivity::class.java)
+            intent.putExtra("device", it)
+            startActivity(intent)
+        }
 
         when{
             bluetoothAdapter?.isEnabled == true -> {
@@ -59,6 +59,10 @@ class BleScanActivity : AppCompatActivity() {
                 displayNoBLEUnAvailable()
             }
         }
+
+        val layoutManager = LinearLayoutManager(applicationContext)
+        recyclerBle.layoutManager = layoutManager
+        recyclerBle.adapter = bleAdapter
 
         title = "AndroidToolBox"
     }
@@ -115,7 +119,11 @@ class BleScanActivity : AppCompatActivity() {
     private val scanCallback = object : ScanCallback() {
         override fun onScanResult(callbackType: Int, result: ScanResult) {
             Log.d("BLEScanActivity", "result: ${result.device.address}, rssi : ${result.rssi}")
-            addToList(result)
+            //addToList(result)
+            bleAdapter.apply{
+                addToList(result)
+                notifyDataSetChanged()
+            }
         }
     }
 
@@ -151,13 +159,11 @@ class BleScanActivity : AppCompatActivity() {
     }
 
     companion object {
-
         private const val ALL_PERMISSION_REQUEST_CODE= 100
         private const val ENABLE_PERMISSION_REQUEST_CODE= 1
-
-
-
+        const val DEVICE_KEY = "device"
     }
+
     private fun addToList(result:ScanResult){
         val index:Int = itemList.indexOfFirst{ it.device.address==result.device.address }
         if(index == -1){

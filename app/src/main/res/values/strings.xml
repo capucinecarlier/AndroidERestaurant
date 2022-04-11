@@ -18,4 +18,8 @@
     <string name="AdressMac">Adresse Mac:</string>
     <string name="distanceBLE">TextView</string>
     <string name="deviceName">Device Unknow</string>
+    <string name="ble_device_disconnected">Statut: déconnecté</string>
+    <string name="ble_device_connected">Statut: connecté</string>
+    <string name="ble_device_characterictic">Button</string>
+    <string name="ble_device_write">Lecture</string>
 </resources>

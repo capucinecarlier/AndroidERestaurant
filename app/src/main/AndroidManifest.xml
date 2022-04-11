@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="fr.isen.carlier.androiderestaurant">
 
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidERestaurant"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".BleServiceAdapter"
+            android:exported="false" />
+        <activity
+            android:name=".BleService"
+            android:exported="false" />
+        <activity
+            android:name=".BleDeviceActivity"
+            android:exported="false" />
         <activity
             android:name=".BleScanActivity"
             android:exported="false" />
