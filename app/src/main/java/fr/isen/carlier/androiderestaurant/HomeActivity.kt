@@ -7,6 +7,8 @@ import android.util.Log
 import android.widget.Toast
 import fr.isen.carlier.androiderestaurant.databinding.ActivityHomeBinding
 
+
+
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +29,16 @@ class MainActivity : AppCompatActivity() {
             goToCategory(getString(R.string.desserts))
         }
 
-        binding.BleButton.setOnClickListener{
-            goToCategory("")
+        binding.BleButton.setOnClickListener {
+            val intent = Intent(this, BleScanActivity:: class.java)
+            startActivity(intent)
+
+        }
+
+        binding.panier.setOnClickListener {
+            val intent = Intent(this, PanierActivity:: class.java)
+            startActivity(intent)
+
         }
 
     }

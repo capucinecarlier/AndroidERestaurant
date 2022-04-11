@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/panier"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.436"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.149"
+        app:srcCompat="@drawable/pngegg" />
+
     <TextView
         android:id="@+id/HomeStarters"
         android:layout_width="wrap_content"
@@ -83,9 +96,10 @@
         android:id="@+id/BleButton"
         android:layout_width="73dp"
         android:layout_height="86dp"
+        android:layout_marginBottom="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ble"
-        tools:layout_editor_absoluteY="566dp" />
+        app:srcCompat="@drawable/ble" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
